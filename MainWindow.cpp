@@ -70,7 +70,7 @@ void MainWindow::on_requestResources_clicked()
     QJsonObject json;
     json["username"] = ui->usernameEdit->text();
     json["time"]     = QTime::currentTime().msecsSinceStartOfDay() / 1000;
-    json["request"]  = ui->resourcesGroup->isEnabled() ? static_cast<int>(req) : ui->lineEdit->text().toInt();
+    json["request"]  = static_cast<int>(req);
     QJsonDocument doc(json);
     _sock->write(doc.toJson());
 }
@@ -79,16 +79,4 @@ void MainWindow::onReadyRead()
 {
     QByteArray data = _sock->readAll();
     ui->responsesBox->append(data);
-}
-
-void MainWindow::on_lineEdit_textChanged(const QString& arg1)
-{
-    if (!arg1.isEmpty())
-    {
-        ui->resourcesGroup->setEnabled(false);
-    }
-    else
-    {
-        ui->resourcesGroup->setEnabled(true);
-    }
 }

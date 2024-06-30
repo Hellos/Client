@@ -102,7 +102,11 @@
             </widget>
            </item>
            <item>
-            <widget class="QSpinBox" name="portEdit"/>
+            <widget class="QSpinBox" name="portEdit">
+             <property name="maximum">
+              <number>65535</number>
+             </property>
+            </widget>
            </item>
           </layout>
          </item>
@@ -208,9 +212,6 @@
               </item>
              </layout>
             </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="lineEdit"/>
            </item>
           </layout>
          </item>

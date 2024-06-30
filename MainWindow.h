@@ -28,8 +28,6 @@ private slots:
     void on_requestResources_clicked();
     void onReadyRead();
 
-    void on_lineEdit_textChanged(const QString& arg1);
-
 private:
     Ui::MainWindow* ui;
     QTcpSocket*     _sock;
