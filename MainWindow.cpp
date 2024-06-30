@@ -9,11 +9,6 @@ MainWindow::MainWindow(QWidget* parent)
     ui->setupUi(this);
     ui->connectButton->setCheckable(true);
     _sock = new QTcpSocket(this);
-
-    connect(_sock, &QTcpSocket::disconnected, this, [&]() {
-        ui->connectButton->toggle();
-        ui->connectButton->click();
-    });
     QRegExp rx("\\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\b");
     ui->ipEdit->setValidator(new QRegExpValidator(rx));
 }
